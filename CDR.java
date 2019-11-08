@@ -1,11 +1,18 @@
 package com.mr;
-public class CDRConstants {
-    public static int fromPhoneNumber = 0;
-    public static int toPhoneNumber = 1;
-    public static int callStartTime = 2;
-    public static int callEndTime = 3;
-    public static int STDFlag = 4;
-}
+import java.io.IOException;
+import java.util.StringTokenizer;
+import org.apache.hadoop.conf.Configuration;
+import org.apache.hadoop.fs.Path;
+import org.apache.hadoop.io.IntWritable;
+import org.apache.hadoop.io.LongWritable;
+import org.apache.hadoop.io.Text;
+import org.apache.hadoop.mapreduce.Job;
+import org.apache.hadoop.mapreduce.Mapper;
+import org.apache.hadoop.mapreduce.Reducer;
+import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
+import org.apache.hadoop.mapreduce.lib.input.TextInputFormat;
+import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
+import org.apache.hadoop.mapreduce.lib.output.TextOutputFormat;
 public class CDR{
     public static class TokenizerMapper extends Mapper< Object , Text, Text, LongWritable> {
         Text phoneNumber = new Text();
