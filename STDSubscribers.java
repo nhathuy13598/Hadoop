@@ -76,11 +76,11 @@ public class STDSubscribers {
 				Mapper<Object, Text, Text, LongWritable>.Context context)
 				throws IOException, InterruptedException {
 			String[] parts = value.toString().split("[|]");
-			if (parts[CDRConstants.STDFlag].equalsIgnoreCase("1")) {
+			if (parts[4].equalsIgnoreCase("1")) {
 
-				phoneNumber.set(parts[CDRConstants.fromPhoneNumber]);
-				String callEndTime = parts[CDRConstants.callEndTime];
-				String callStartTime = parts[CDRConstants.callStartTime];
+				phoneNumber.set(parts[0]);
+				String callEndTime = parts[3];
+				String callStartTime = parts[2];
 				long duration = toMillis(callEndTime) - toMillis(callStartTime);
 				durationInMinutes.set(duration / (1000 * 60));
 				context.write(phoneNumber, durationInMinutes);
