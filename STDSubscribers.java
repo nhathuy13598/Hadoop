@@ -35,7 +35,7 @@ public class STDSubscribers {
 			System.err.println("Usage: stdsubscriber <in> <out>");
 			System.exit(2);
 		}
-		Job job = new Job(conf, "STD Subscribers");
+		Job job = new Job(conf, "STDSubscribers");
 		job.setJarByClass(STDSubscribers.class);
 		job.setMapperClass(TokenizerMapper.class);
 		job.setCombinerClass(SumReducer.class);
