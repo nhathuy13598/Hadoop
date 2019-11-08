@@ -46,8 +46,7 @@ public class STDSubscribers {
 		System.exit(job.waitForCompletion(true) ? 0 : 1);
 	}
 
-	public static class SumReducer extends
-			Reducer<Text, LongWritable, Text, LongWritable> {
+	public static class SumReducer extends Reducer<Text, LongWritable, Text, LongWritable> {
 		private LongWritable result = new LongWritable();
 
 		public void reduce(Text key, Iterable<LongWritable> values,
@@ -65,8 +64,7 @@ public class STDSubscribers {
 		}
 	}
 
-	public static class TokenizerMapper extends
-			Mapper<Object, Text, Text, LongWritable> {
+	public static class TokenizerMapper extends Mapper<Object, Text, Text, LongWritable> {
 
 		Text phoneNumber = new Text();
 		LongWritable durationInMinutes = new LongWritable();
